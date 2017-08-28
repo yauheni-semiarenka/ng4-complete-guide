@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, HostBinding } from '@angular/core';
 import {Recipe} from '../../recipe.model';
 
 @Component({
@@ -9,6 +9,7 @@ import {Recipe} from '../../recipe.model';
 export class RecipeItemComponent implements OnInit {
   @Input() recipe: Recipe;
   @Output() recipeSelected = new EventEmitter<void>();
+  @HostBinding('class') selectedStyle = '';
 
   constructor() { }
 
@@ -17,5 +18,10 @@ export class RecipeItemComponent implements OnInit {
 
   onSelected() {
     this.recipeSelected.emit();
+    if (this.selectedStyle) {
+      this.selectedStyle = '';
+    } else {
+      this.selectedStyle = 'selected';
+    }
   }
 }
