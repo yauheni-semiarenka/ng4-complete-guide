@@ -6,7 +6,9 @@
       <a
         class="list-group-item"
         style="cursor: pointer;"
-        *ngFor="let ingredient of ingredients"
+        *ngFor="let ingredient of ingredients; let i = index"
+        (click)="onEditItem(i)"
+        [ngClass]="highlightEditedItem === i ? 'active' : ''"
       >
         {{ ingredient.name }} ({{ ingredient.amount }})
       </a>
