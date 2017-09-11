@@ -11,6 +11,7 @@ export class RecipeService {
 
     private recipes: Recipe[] = [
         new Recipe(
+            1,
             'A Test Recipe',
             'This is simply a test',
             'http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg',
@@ -19,6 +20,7 @@ export class RecipeService {
                 new Ingredient('French Fries', 20)
             ]),
         new Recipe(
+            2,
             'Pizza Recipe',
             'This is simply a test',
             'http://www.simplyrecipes.com/wp-content/uploads/2007/01/homemade-pizza-horiz-a-1200.jpg',
@@ -49,6 +51,7 @@ export class RecipeService {
     }
 
     addRecipe(recipe: Recipe) {
+        
         this.recipes.push(recipe);
         this.recipesChanges.next(this.recipes.slice());
     }
