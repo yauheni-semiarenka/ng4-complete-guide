@@ -9,12 +9,12 @@ export class DataStorageService {
   constructor(private http: Http, private recipeService: RecipeService) { }
 
   storeRecipes() {
-    return this.http.post('http://localhost:8080/setData',
+    return this.http.post('http://localhost:8765/api/setData',
       this.recipeService.getRecipes());
   }
 
   getRecipes() {
-    this.http.get('http://localhost:8080/getData')
+    this.http.get('http://localhost:8765/api/getData')
       .map(
         (response: Response) => {
           const recipes: Recipe[] = response.json();
